@@ -20,6 +20,7 @@ if [ $last_handshake -eq 0 ]
 then
 	/etc/init.d/dnsmasq restart
 	sh /root/$iface
+	echo $iface no connection at `date "+%Y_%m_%d %H:%M:%S"` >> /tmp/wg_check.log
 fi
 		
 
@@ -34,6 +35,7 @@ echo $idle_seconds
 		then
 			/etc/init.d/dnsmasq restart
 			sh /root/$iface
+			echo $iface timeout over 300s at `date "+%Y_%m_%d %H:%M:%S"` >> /tmp/wg_check.log
 		fi
 fi
 
