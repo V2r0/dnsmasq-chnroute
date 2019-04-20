@@ -1,0 +1,46 @@
+#!/bin/sh
+# cat /etc/crontabs/root
+#*/5 * * * * sh /root/aatuo_wgc   wg1.wgaliszvp.
+#   auto_wgc wg1.wgaliszvp.
+#   iproute_for_wgaliszvp
+
+st() {
+d1=$1
+echo $d1 | awk -F '[.]' '{print $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19}' >  /tmp/wg_tmp_check_0001
+
+for iii in `cat /tmp/wg_tmp_check_0001`
+do
+
+
+iface=$iii
+#iface=wgaliszvp
+last_handshake=`wg show ${iface} latest-handshakes | awk '{print $2}'`
+
+if [ $last_handshake -eq 0 ]
+then
+	/etc/init.d/dnsmasq restart
+	sh /root/$iface
+fi
+		
+
+
+if [ $last_handshake -gt 0 ]
+then
+idle_seconds=$((`date +%s`-${last_handshake}))
+echo $idle_seconds
+		
+
+		if [ $idle_seconds -gt 300 ]
+		then
+			/etc/init.d/dnsmasq restart
+			sh /root/$iface
+		fi
+fi
+
+done
+
+
+}
+
+st $1
+
