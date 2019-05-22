@@ -63,6 +63,9 @@ do
 
 
 iface=$iii
+
+wg |grep $iface || (sh /root/$iface ; sleep 7 ; echo $iface --- `date`>>/tmp/boot_wg_start_log )
+
 #iface=wgaliszvp
 last_handshake=`wg show ${iface} latest-handshakes | awk '{print $2}'`
 
@@ -71,8 +74,6 @@ then
 	ccdns $iface
 	sh /root/$iface
 fi
-		
-
 
 if [ $last_handshake -gt 0 ]
 then
@@ -86,16 +87,11 @@ echo $idle_seconds
 			sh /root/$iface
 		fi
 fi
-
 done
+
 
 
 }
 
-
-
-
 st $1
-
-
 exit 0;
