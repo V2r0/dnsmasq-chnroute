@@ -32,7 +32,10 @@ then
 	currentTime=`date +"%M%S"`
 	if [[ $currentTime -ge $startTime && $currentTime -le $endTime ]];  
 	then
+		echo dnsmasq for $iface `date` >>/tmp/dnsmasq_tmp_$iface
 		/etc/init.d/dnsmasq restart
+	else
+		echo nothing `date` >>/tmp/dnsmasq_tmp_$iface
 	fi
 
 	startTime="184300"
