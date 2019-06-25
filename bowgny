@@ -1,8 +1,16 @@
 
+deley=210
 w_g=wgny
 pip=10.66.210.1
-deley=209
 
+
+sy() {
+cat /etc/crontabs/root |grep "wgny."  || exit 0
+}
+
+st() {
+
+echo $1 |grep c && sy
 
 for iii in `cat /tmp/iproute_for_$w_g` 
 do
@@ -77,5 +85,7 @@ for iii in `cat /tmp/iproute_for_$w_g`
 do
 ip route delete  $iii via 127.0.0.4 metric 1
 done
+}
 
+st $1
 echo 11111111
