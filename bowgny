@@ -5,7 +5,7 @@ pip=10.66.210.1
 
 
 sy() {
-cat /etc/crontabs/root |grep wgny. |grep -v /root/bowgny || exit 0
+cat /etc/crontabs/root |grep wgny. || exit 0
 }
 
 st() {
