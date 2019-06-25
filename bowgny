@@ -1,0 +1,81 @@
+
+w_g=wgny
+pip=10.66.210.1
+deley=209
+
+
+for iii in `cat /tmp/iproute_for_$w_g` 
+do
+ip route delete  $iii via 127.0.0.4 metric 1
+done
+echo 333333
+sleep 3
+
+sh /root/$w_g
+nn=1
+for iii in `cat /tmp/iproute_for_$w_g` 
+do
+ip route add $iii via 127.0.0.4 metric 1
+done
+
+for oo in 1 2 3 4 5 6 7 8 9 10
+do
+	rr=$(($oo+$deley))
+	echo $rr  ------
+	[ $nn -ge 9 ] && break
+	ping $pip -c 2
+	aavg=`ping $pip -c 5 |grep min/avg/max | awk -F '[./]' '{print $5}'`
+	
+	if [ $aavg -le $deley ]
+	then
+		echo  $aavg less then $deley 
+		nn=$(($nn+33))
+		break
+	fi
+	
+	echo  $aavg is bigger then $deley 
+	sh /root/wgny
+done
+
+deley=$(($deley+4))
+for oo in 1 2 3 4 5 6 7 
+do
+	[ $nn -ge 9 ] && break
+	ping $pip -c 2
+	aavg=`ping $pip -c 5 |grep min/avg/max | awk -F '[./]' '{print $5}'`
+	
+	if [ $aavg -le $deley ]
+	then
+		echo  $aavg less then $deley 
+		nn=$(($nn+33))
+		break
+	fi
+	
+	echo  $aavg is bigger then $deley 
+	sh /root/wgny
+done
+
+deley=$(($deley+4))
+for oo in 1 2 3 4 5
+do
+	[ $nn -ge 9 ] && break
+	ping $pip -c 2
+	aavg=`ping $pip -c 5 |grep min/avg/max | awk -F '[./]' '{print $5}'`
+	
+	if [ $aavg -le $deley ]
+	then
+		echo  $aavg less then $deley 
+		nn=$(($nn+33))
+		break
+	fi
+	
+	echo  $aavg is bigger then $deley 
+	sh /root/wgny
+done
+
+for iii in `cat /tmp/iproute_for_$w_g` 
+do
+ip route delete  $iii via 127.0.0.4 metric 1
+done
+
+echo 11111111
