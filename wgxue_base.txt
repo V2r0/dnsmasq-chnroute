@@ -28,7 +28,7 @@ rm /tmp/wgser_ip__$w_g22
 wget -T 10 -t 3  --no-check-certificate -qO /tmp/wgser_ip__$w_g22  139.199.228.204:15558/$w_g22
 if cat /tmp/wgser_ip__$w_g22 |grep :
 then
-	echo 111112222222222222222222222222222222222
+	echo 111112222222222222222222222222222222222333333333333333333
 	w2_ser=`cat /tmp/wgser_ip__$w_g22`
 	cat /root/wchangetun|grep "w_ser=$w2_ser"  || sed -i "/wwwgggser_add/i\w_ser=$w2_ser"  /root/wchangetun
 	
