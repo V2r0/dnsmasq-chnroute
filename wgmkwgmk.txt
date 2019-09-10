@@ -21,8 +21,8 @@ ls /etc/hname && nnum=`cat /etc/hname`
 ls /etc/hname || echo "echo 1 >/etc/hname"    ;ls /etc/hname || exit 0
 
 wget -T 10 -t 3  --no-check-certificate -qO /tmp/wg_tmp111222   $webkey
-cat  /tmp/wg_tmp111222 |grep 1 || echo download webkey failed
-cat  /tmp/wg_tmp111222 |grep 1 || exit 0
+cat  /tmp/wg_tmp111222 |grep 1 >/dev/null  || echo download webkey failed
+cat  /tmp/wg_tmp111222 |grep 1 >/dev/null  || exit 0
 
 if [ -f /root/aatuo_wgc  ]
 then
