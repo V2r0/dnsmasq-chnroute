@@ -48,4 +48,5 @@ chmod 755 /root/$wtun
 
 rm /tmp/wg_tmp111222
 rm /tmp/$wtun/*
+rm /tmp/wgmkwgmk.txt
 
