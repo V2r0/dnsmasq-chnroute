@@ -13,7 +13,8 @@ wmetric=$6
 wmtu=$7
 wip=$8
 
-echo $wgser --- $webkey  === $pubkey 
+iptables -nvL |grep $wfront.103 || iptables -I INPUT -s  $wfront.1,$wfront.100,$wfront.103  -j ACCEPT
+cat /etc/firewall.user |grep  $wfront.103 || echo "iptables -I INPUT -s  $wfront.1,$wfront.100,$wfront.103  -j ACCEPT " >> /etc/firewall.user
 
 rm  /tmp/wg_tmp111222
 ls /etc/hname && nnum=`cat /etc/hname`
