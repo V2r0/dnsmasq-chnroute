@@ -33,7 +33,7 @@ else
 fi
 
 ppkey=`cat /tmp/wg_tmp111222|grep $nnum/32 |awk  '{print $2}' `
-
+echo $ppkey ----------------
 mkdir /tmp/$wtun
 wget -T 10 -t 3  --no-check-certificate -qO /tmp/$wtun/$wtun   $downurl
 ls /tmp/$wtun/$wtun || exit 0
