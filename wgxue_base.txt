@@ -1,11 +1,11 @@
 #!/bin/sh
 cat > /tmp/iproute_for_wchangetun <<EOF
 
-#1.33.33.33/32
+#1.33.33.33/24
 
 EOF
 ################## mkwgmk ser tun front webkey pubkey metric mtu 1.1.1.217/32
-metttric=789
+metttric=1789
 mmtu=1380
 ls /etc/hname && nnum=`cat /etc/hname`
 ls /etc/hname || echo "echo 1 >/etc/hname"    ;ls /etc/hname || exit 0
