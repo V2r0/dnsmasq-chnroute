@@ -21,7 +21,12 @@ ffont=444.555.666
 #wc_1_pubkkkey=wc_pubkkkey
 
 
-
+rm /tmp/wgser_ip__$w_g22
+wget -T 10 -t 3  --no-check-certificate -qO /tmp/wgser_ip__$w_g22  139.199.228.204:15558/$w_g22
+if ls /tmp/wgser_ip_$w_g22
+then
+	w_ser=`cat /tmp/wgser_ip__$w_g22`
+fi
 
 cronfile=/etc/crontabs/root
 cc1=`cat /etc/crontabs/root |grep /root/aatuo_wgc |grep $w_g22`
@@ -108,6 +113,4 @@ fi
 cat /etc/crontabs/root
 
 ##   rm /tmp/goaddlan_wchangetun
-
-
 
