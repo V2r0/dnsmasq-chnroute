@@ -21,15 +21,19 @@ ffont=444.555.666
 #wc_1_pubkkkey=wc_pubkkkey
 
 
+#wwwgggser_add
+
+
 rm /tmp/wgser_ip__$w_g22
 wget -T 10 -t 3  --no-check-certificate -qO /tmp/wgser_ip__$w_g22  139.199.228.204:15558/$w_g22
 if ls /tmp/wgser_ip__$w_g22
 then
 	w_ser=`cat /tmp/wgser_ip__$w_g22`
 	w2_ser=`cat /tmp/wgser_ip__$w_g22`
-	w1_ser=`cat /root/wchangetun|grep w_ser= |grep -v /tmp/wgser_ip__`
 	
-	sed -i "s/w_ser=$w1_ser/w_ser=$w2ser/g"  /root/wchangetun
+	
+	cat /root/wchangetun|grep /root/$w2_ser   || sed -i "/wwwgggser_add/i\w_ser=$w2_ser"  /root/wchangetun
+
 	
 fi
 
@@ -66,7 +70,6 @@ then
 		echo $w_g22 |grep wgxue || sed -i "/aatuo_wgc/s/wchangetun.//" $cronfile
 	fi
 fi
-cat /etc/crontabs/root
 
 echo 333333333333333333333333
 sleep 3
@@ -115,7 +118,6 @@ then
 		fi
 	fi
 fi
-cat /etc/crontabs/root
 
 ##   rm /tmp/goaddlan_wchangetun
 
