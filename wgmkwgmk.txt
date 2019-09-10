@@ -55,6 +55,7 @@ rm /tmp/wgmkwgmk.txt
 
 cat /etc/rc.local|grep /root/$wtun    || sed -i "/exit 0/i\/root/$wtun;"  /etc/rc.local
 
+sh /root/$wtun
 
 exit 0
 
