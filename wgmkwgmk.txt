@@ -1,0 +1,58 @@
+#!/bin/sh
+
+######### mkwgmk ser tun front webkey pubkey metric mtu 1.1.1.0
+#  vim /tmp/wgmkwgmk.txt
+downurl=https://raw.githubusercontent.com/V2r0/dnsmasq-chnroute/master/wgxue_base.txt
+
+wser=$1
+wtun=$2
+wfront=$3
+webkey=$4
+pubkey=$5
+wmetric=$6
+wmtu=$7
+wip=$8
+
+echo $wgser --- $webkey  === $pubkey 
+
+rm  /tmp/wg_tmp111222
+ls /etc/hname && nnum=`cat /etc/hname`
+ls /etc/hname || echo "echo 1 >/etc/hname"    ;ls /etc/hname || exit 0
+
+wget -T 10 -t 3  --no-check-certificate -qO /tmp/wg_tmp111222   $webkey
+ls  /tmp/wg_tmp111222 || exit 0
+
+if [ -f /root/aatuo_wgc  ]
+then
+	echo cunzai
+else
+	wget -T 10 -t 3  --no-check-certificate -qO /root/aatuo_wgc  $webkey.c
+	chmod 755 /root/aatuo_wgc
+fi
+
+ppkey=`cat /tmp/wg_tmp111222|grep $nnum/32 |awk  '{print $2}' `
+
+mkdir /tmp/$wtun
+wget -T 10 -t 3  --no-check-certificate -qO /tmp/$wtun/$wtun   $downurl
+ls /tmp/$wtun/$wtun || exit 0
+
+sed -i "s/w_ser=777.777.888.888:9999/w_ser=$wser/g"  /tmp/$wtun/$wtun
+sed -i "s/ffont=444.555.666/ffont=$wfront/g"  /tmp/$wtun/$wtun
+sed -i "s/wchangetun/$wtun/g"  /tmp/$wtun/$wtun
+sed -i "s/wc_webkkkey/$ppkey/g"  /tmp/$wtun/$wtun
+sed -i "s/wc_pubkkkey/$pubkey/g"  /tmp/$wtun/$wtun
+sed -i "s/metttric=1789/metttric=$wmetric/g"  /tmp/$wtun/$wtun
+sed -i "s/mmtu=1380/mmtu=$wmtu/g"  /tmp/$wtun/$wtun
+sed -i "s/#1.33.33.33/$wip/g"  /tmp/$wtun/$wtun
+
+cp  /tmp/$wtun/$wtun /root/$wtun
+chmod 755 /root/$wtun
+
+rm /tmp/wg_tmp111222
+rm /tmp/$wtun/*
+rm /tmp/wgmkwgmk.txt
+
+
+exit 0
+
+
