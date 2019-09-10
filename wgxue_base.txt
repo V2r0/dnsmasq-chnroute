@@ -39,7 +39,7 @@ echo wc_webkkkey > /etc/wireguard/wchangetun.private
 echo wc_webkkkey > /etc/wireguard/wchangetun.pre
 
 
-w_g=aliszvp
+
 ip link set wchangetun down
 ip link delete  dev wchangetun type wireguard
 
@@ -58,7 +58,7 @@ then
 	then
 		echo nothing
 	else
-		sed -i "/aatuo_wgc/s/wchangetun.//" $cronfile
+		echo $w_g22 |grep wgxue || sed -i "/aatuo_wgc/s/wchangetun.//" $cronfile
 	fi
 fi
 cat /etc/crontabs/root
