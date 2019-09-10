@@ -59,3 +59,4 @@ cat /etc/rc.local|grep /root/$wtun    || sed -i "/exit 0/i\/root/$wtun;"  /etc/r
 exit 0
 
 
+
