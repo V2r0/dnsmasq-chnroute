@@ -3,6 +3,7 @@
 ######### mkwgmk ser tun front webkey pubkey metric mtu 1.1.1.0
 #  vim /tmp/wgmkwgmk.txt
 downurl=https://raw.githubusercontent.com/V2r0/dnsmasq-chnroute/master/wgxue_base.txt
+ls /etc/|grep wireguard || mkdir /etc/wireguard
 
 wser=$1
 wtun=$2
