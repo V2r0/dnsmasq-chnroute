@@ -47,7 +47,7 @@ sed -i "s/mmtu=1380/mmtu=$wmtu/g"  /tmp/$wtun/$wtun
 
 sed -i "s%wc_webkkkey%$ppkey%g"  /tmp/$wtun/$wtun
 sed -i "s%wc_pubkkkey%$pubkey%g"  /tmp/$wtun/$wtun
-sed -i "s%#1.33.33.33/24%$wip%g"  /tmp/$wtun/$wtun
+#sed -i "s%#1.33.33.33/24%$wip%g"  /tmp/$wtun/$wtun
 
 cp  /tmp/$wtun/$wtun /root/$wtun
 chmod 755 /root/$wtun
