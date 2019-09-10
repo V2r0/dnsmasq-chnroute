@@ -119,3 +119,5 @@ fi
 
 ##   rm /tmp/goaddlan_wchangetun
 
+exit 0
+
