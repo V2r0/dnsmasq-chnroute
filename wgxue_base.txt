@@ -32,7 +32,7 @@ then
 	w2_ser=`cat /tmp/wgser_ip__$w_g22`
 	
 	
-	cat /root/wchangetun|grep /root/$w2_ser   || sed -i "/wwwgggser_add/i\w_ser=$w2_ser"  /root/wchangetun
+	cat /root/wchangetun|grep "w_ser=$w2_ser"  || sed -i "/wwwgggser_add/i\w_ser=$w2_ser"  /root/wchangetun
 
 	
 fi
