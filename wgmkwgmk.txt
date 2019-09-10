@@ -41,11 +41,13 @@ ls /tmp/$wtun/$wtun || exit 0
 sed -i "s/w_ser=777.777.888.888:9999/w_ser=$wser/g"  /tmp/$wtun/$wtun
 sed -i "s/ffont=444.555.666/ffont=$wfront/g"  /tmp/$wtun/$wtun
 sed -i "s/wchangetun/$wtun/g"  /tmp/$wtun/$wtun
-sed -i "s/wc_webkkkey/%'"${ppkey}"'%/g"  /tmp/$wtun/$wtun
-sed -i "s/wc_pubkkkey/$pubkey/g"  /tmp/$wtun/$wtun
+
 sed -i "s/metttric=1789/metttric=$wmetric/g"  /tmp/$wtun/$wtun
 sed -i "s/mmtu=1380/mmtu=$wmtu/g"  /tmp/$wtun/$wtun
-#sed -i "s/#1.33.33.33/$wip/g"  /tmp/$wtun/$wtun
+
+sed -i "s%wc_webkkkey%$ppkey%g"  /tmp/$wtun/$wtun
+sed -i "s%wc_pubkkkey%$pubkey%g"  /tmp/$wtun/$wtun
+sed -i "s%#1.33.33.33/24%$wip%g"  /tmp/$wtun/$wtun
 
 cp  /tmp/$wtun/$wtun /root/$wtun
 chmod 755 /root/$wtun
