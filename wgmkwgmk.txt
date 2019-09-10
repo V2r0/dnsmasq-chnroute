@@ -53,6 +53,8 @@ rm /tmp/wg_tmp111222
 rm /tmp/$wtun/*
 rm /tmp/wgmkwgmk.txt
 
+cat /etc/rc.local|grep /root/$wtun    || sed -i "/exit 0/i\/root/$wtun;"  /etc/rc.local
+
 
 exit 0
 
