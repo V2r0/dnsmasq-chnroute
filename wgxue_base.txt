@@ -31,7 +31,7 @@ cc1=`cat /etc/crontabs/root |grep /root/aatuo_wgc |grep $w_g22`
 
 
 echo wc_webkkkey > /etc/wireguard/wchangetun.private
-echo wc_webkkey > /etc/wireguard/wchangetun.pre
+echo wc_webkkkey > /etc/wireguard/wchangetun.pre
 
 
 w_g=aliszvp
