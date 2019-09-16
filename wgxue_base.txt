@@ -79,7 +79,7 @@ wg set wchangetun peer  wc_pubkkkey   preshared-key  /etc/wireguard/wchangetun.p
 ip link set wchangetun up;sleep 5;
 
 ip link set wchangetun  mtu $mmtu
-route add  $ffont.1  dev wchangetun
+ip route add  $ffont.0/24  dev wchangetun
 
 sleep 5;
 if [ -f /tmp/goaddlan_wchangetun ]
