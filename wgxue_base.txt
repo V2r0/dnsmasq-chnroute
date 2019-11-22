@@ -25,7 +25,7 @@ ffont=444.555.666
 
 
 rm /tmp/wgser_ip__$w_g22
-wget -T 10 -t 3  --no-check-certificate -qO /tmp/wgser_ip__$w_g22  139.199.228.204:15558/$w_g22
+##wget -T 10 -t 3  --no-check-certificate -qO /tmp/wgser_ip__$w_g22  139.199.228.2:15/$w_g22
 if cat /tmp/wgser_ip__$w_g22 |grep :
 then
 	echo 111112222222222222222222222222222222222333333333333333333
